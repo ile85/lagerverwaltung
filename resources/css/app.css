@@ -210,7 +210,7 @@ body {
   }
   
   /* Central image styling */
-  .flex img {
+.flex img {
     max-width: 100%;
     height: auto;
   }
@@ -415,7 +415,7 @@ form[action*="destroy"] input[type="submit"]:hover {
 
 .btn {
     padding: 5px; /* Adjust padding to control the space inside the button */
-    margin: 0 2px; /* Remove margin to eliminate space around the button */
+    margin: 6 2px; /* Remove margin to eliminate space around the button */
     /* You can adjust the 2px to increase or decrease the space between buttons */
 }
 

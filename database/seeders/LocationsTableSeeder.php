@@ -9,7 +9,7 @@ class LocationsTableSeeder extends Seeder
 {
     public function run()
     {
-        $faker = \Faker\Factory::create();
+        $faker = \Faker\Factory::create('de_DE');
 
         foreach (range(1, 10) as $index) {
             Location::create([

@@ -7,10 +7,6 @@
     <div id="search-container">
         <!--  search input -->
    </div>
-   <div class="table-responsive">
-        <!-- DataTables Table -->
-    </div>
-
     <div class="table-responsive">
     <table class="data-table">
         <thead>
@@ -25,7 +21,7 @@
             <tr>
                 <td>{{ $category->id }}</td>
                 <td>{{ $category->name }}</td>
-                <<td class="actions">
+                <td class="actions">
                 <div class="table-actions">
                     <a href="{{ route('categories.show', $category->id) }}" class="btn btn-info">View</a>
                     <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning">Edit</a>
