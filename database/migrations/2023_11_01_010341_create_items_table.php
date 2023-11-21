@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description'); // Add this line for the description
+            $table->text('description')->nullable(); // Add this line for the description
             $table->unsignedBigInteger('category_id'); // Add this line for the category_id
-            $table->unsignedBigInteger('location_id'); // Add this line for the location_id
+            $table->unsignedBigInteger('location_id')->nullable(); // Add this line for the location_id
             // ... add any other missing columns here
             $table->timestamps();
         });

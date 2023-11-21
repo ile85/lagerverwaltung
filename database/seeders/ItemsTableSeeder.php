@@ -9,14 +9,18 @@ class ItemsTableSeeder extends Seeder
 {
     public function run()
     {
-        $faker = \Faker\Factory::create('de_DE');
+        $items = [
+            'Maus', 'Tastatur', 'Laptop', 'Laptoptasche', 'Monitor', 
+            'USB-Stick', 'Externe Festplatte', 'Router', 'Webcam', 'Headset', 
+            'Grafiktablett', 'Drucker', 'Scanner', 'Projektor', 'Lautsprecher'
+        ];
 
-        foreach (range(1, 50) as $index) {
+        foreach ($items as $itemName) {
             Item::create([
-                'name' => $faker->name,
-                'description' => $faker->text(150),
-                'category_id' => $faker->numberBetween(1, 5),
-                'location_id' => $faker->numberBetween(1, 10),
+                'name' => $itemName,
+                'description' => 'Beschreibung für ' . $itemName,
+                'category_id' => rand(1, 5), // Random category ID, adjust as needed
+                'location_id' => rand(1, 10), // Random location ID, adjust as needed
             ]);
         }
     }

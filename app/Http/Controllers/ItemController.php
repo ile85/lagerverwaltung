@@ -41,6 +41,7 @@ class ItemController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'category_id' => 'required|exists:categories,id',
+            'location_id' => 'required|exists:locations,id',
         ]);
 
         $item = new Item($validatedData);

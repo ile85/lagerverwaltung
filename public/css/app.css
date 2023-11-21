@@ -1756,6 +1756,9 @@ body {
     --background-color: #f4f4f4;
     --highlight-color: #1167A1;
 }
+.bg-primary {
+    background-color: var(--primary-color); /* Assuming --primary-color is defined in :root and is not white */
+}
 
 ::-moz-selection {
     background: var(--secondary-color);
@@ -1933,8 +1936,6 @@ body {
     float: right; /* Space below the search input */
 }
 
-
-
 .search-label {
     display: block; /* This will make the label take its own line */
     margin-bottom: 0.5rem; /* Space below the label, adjust as needed */
@@ -2096,7 +2097,11 @@ input[type="text"], input[type="date"], select {
     border: 1px solid var(--secondary-color);
     
 }
-
+input[type="email"] {
+    border: 1px solid #ccc; /* This sets a light grey border */
+    padding: 0.5rem; /* This adds some padding inside the input */
+    border-radius: 0.25rem; /* This adds rounded corners to the input */
+}
 button[type="submit"], a {
     display: inline-block;
     background-color: var(--primary-color);
@@ -2182,6 +2187,7 @@ form[action*="destroy"] input[type="submit"]:hover {
     background-color: #c0392b; /* Darker shade for hover effect, or any other color you prefer */
     /* Any other hover effects */
 }
+
 /* Animations */
 @keyframes fadeIn {
     to {

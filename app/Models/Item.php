@@ -13,7 +13,7 @@ class Item extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'category_id'];
+    protected $fillable = ['name', 'category_id', 'description'];
 
     /**
      * Rufen Sie die Kategorie ab, zu der das Element gehört.

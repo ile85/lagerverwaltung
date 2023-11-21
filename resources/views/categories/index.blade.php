@@ -13,7 +13,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th class="actions">Actions</th>
+                <th class="actions">Aktionen</th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +23,7 @@
                 <td>{{ $category->name }}</td>
                 <td class="actions">
                 <div class="table-actions">
-                    <a href="{{ route('categories.show', $category->id) }}" class="btn btn-info">View</a>
+                    <a href="{{ route('categories.show', $category->id) }}" class="btn btn-info">Sicht</a>
                     <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning">Edit</a>
                     <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="inline-form">
                         @csrf

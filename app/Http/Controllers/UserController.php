@@ -51,11 +51,12 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|max:255',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            // add other validation rules as needed
+            'email' => 'required|email|unique:users,email,' . $user->id,            
         ]);
 
         $user->update($validatedData);
+        $validatedData['password'] = bcrypt('defaultPassword');
+        User::create($validatedData);
 
         return redirect()->route('users.index')->with('success', 'User updated successfully.');
     }

@@ -15,11 +15,11 @@ class DatabaseSeeder extends Seeder
         // Call other seeders here
         $this->call([
             // List all the seeders you want to run
+            UsersTableSeeder::class,
             CategoriesTableSeeder::class,
             ItemsTableSeeder::class,
             LocationsTableSeeder::class,
             RentalsTableSeeder::class,
-            UsersTableSeeder::class
             // ... any other seeders
         ]);
     }

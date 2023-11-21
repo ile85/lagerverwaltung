@@ -2,28 +2,32 @@
 
 namespace Database\Seeders;
 
-use App\Models\Rental;
-use App\Models\Location; // You need to reference the Location model
 use Illuminate\Database\Seeder;
+use App\Models\Rental;
+use App\Models\Item;
+use App\Models\Location;
+use App\Models\User;
+use Faker\Factory as Faker;
 
 class RentalsTableSeeder extends Seeder
 {
     public function run()
     {
-        $faker = \Faker\Factory::create();
-
-        // Get all location IDs as an array
+        $faker = Faker::create();
+        if (User::count() == 0) {
+            User::factory()->count(50)->create(); 
+        }
+        $userIds = User::all()->pluck('id')->toArray();
+        $itemIds = Item::pluck('id')->toArray();
         $locationIds = Location::pluck('id')->toArray();
 
         foreach (range(1, 50) as $index) {
-            // Ensure a valid location_id is used by selecting a random one from the location IDs array
-            $location_id = $faker->randomElement($locationIds);
-
             Rental::create([
-                'location_id' => $location_id,
+                'user_id' => $faker->randomElement($userIds),
+                'item_id' => $faker->randomElement($itemIds),
+                'location_id' => $faker->randomElement($locationIds),
                 'student_email' => $faker->safeEmail,
                 'student_name' => $faker->name,
-                'item_id' => $faker->numberBetween(1, 50), // Make sure this references a valid item ID
                 'rented_at' => $faker->dateTimeBetween('-1 month', 'now'),
                 'returned_at' => $faker->randomElement([null, $faker->dateTimeBetween('now', '+1 month')]),
             ]);

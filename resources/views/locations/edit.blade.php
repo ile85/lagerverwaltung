@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Edit Location</h1>
+<h1>Standort bearbeiten</h1>
 
 <form action="{{ route('locations.update', $location->id) }}" method="POST">
     @csrf

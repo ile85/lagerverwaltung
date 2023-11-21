@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Category Details</h1>
+    <h1>Kategoriedetails</h1>
     <div class="table-responsive">
     <table class="table">
         <tbody>

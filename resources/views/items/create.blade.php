@@ -19,6 +19,6 @@
         </select>
     </div>
 
-    <button type="submit" class="btn btn-submit">Add</button>
+    <button type="submit" class="btn btn-submit">Hinzufügen</button>
 </form>
 @endsection

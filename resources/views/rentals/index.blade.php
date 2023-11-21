@@ -22,6 +22,7 @@
                                     <th>ID</th>
                                     <th>Artikel</th>
                                     <th>Standort</th>
+                                    <th>Benutzer</th>
                                     <th class="actions">Aktionen</th>
                                 </tr>
                             </thead>
@@ -30,7 +31,14 @@
                                     <tr>
                                         <td>{{ $rental->id }}</td>
                                         <td>{{ $rental->item->name }}</td>
-                                        <td>{{ $rental->location ? $rental->location->name : 'N/A' }}</td>
+                                        <td>{{ $rental->location ? $rental->location->ort : 'N/A' }}</td>
+                                        <td>
+                                            @if ($rental->user)
+                                                {{ $rental->user->name }}
+                                            @else
+                                                No User Assigned
+                                            @endif
+                                        </td>
                                         <td class="actions">
                                             <div class="table-actions">
                                                 <a href="{{ route('rentals.show', $rental->id) }}" class="btn btn-info">Sicht</a>

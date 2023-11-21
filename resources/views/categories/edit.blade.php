@@ -2,15 +2,15 @@
 
 @section('content')
 <div class="container">
-    <h1>Edit Category</h1>
+    <h1>Kategorie bearbeiten</h1>
     <form action="{{ route('categories.update', $category->id) }}" method="POST">
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="name">Category Name</label>
+            <label for="name">Kategoriename</label>
             <input type="text" name="name" class="form-control" id="name" value="{{ $category->name }}" required>
         </div>
-        <button type="submit" class="btn btn-primary">Update Category</button>
+        <button type="submit" class="btn btn-primary">Kategorie aktualisieren</button>
     </form>
 </div>
 @endsection

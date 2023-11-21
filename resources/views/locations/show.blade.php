@@ -6,7 +6,7 @@
         <h1 class="text-2xl font-bold mb-3">{{ $location->ort }}</h1>
         <p class="mb-6 text-gray-700">Adresse: {{ $location->adresse }}</p>
 
-        <h2 class="text-xl font-semibold mb-4">Items at this Location</h2>
+        <h2 class="text-xl font-semibold mb-4">Artikel an diesem Standort</h2>
         @if ($location->items && $location->items->count() > 0)
             <div class="overflow-x-auto">
                 <table class="table-auto w-full mb-6">
@@ -31,10 +31,10 @@
                 </table>
             </div>
         @else
-            <p class="text-gray-600">No items found at this location.</p>
+            <p class="text-gray-600">An diesem Standort wurden keine Artikel gefunden.</p>
         @endif
 
-        <a href="{{ route('locations.edit', $location->id) }}" class="btn btn-primary">Edit Location</a>
+        <a href="{{ route('locations.edit', $location->id) }}" class="btn btn-primary">Standort bearbeiten</a>
     </div>
 </div>
 @endsection

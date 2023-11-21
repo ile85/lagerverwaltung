@@ -19,7 +19,10 @@ class Rental extends Model
         'student_email',
         'student_name',
         'item_id',
+        'user_id',
         'location_id',
+        'rented_at', 
+        'returned_at'
     ];
 
     public function item()
@@ -30,6 +33,10 @@ class Rental extends Model
     public function location()
     {
         return $this->belongsTo(Location::class);
+    }
+    public function user()
+    {
+    return $this->belongsTo(User::class);
     }
 
      /**

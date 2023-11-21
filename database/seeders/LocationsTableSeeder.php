@@ -13,8 +13,8 @@ class LocationsTableSeeder extends Seeder
 
         foreach (range(1, 10) as $index) {
             Location::create([
-                'ort' => $faker->city,
-                'adresse' => $faker->address, // Changed to address to be more appropriate for the 'adresse' field
+                'ort' => $faker->city, 
+                'adresse' => $faker->address, 
             ]);
         }
     }

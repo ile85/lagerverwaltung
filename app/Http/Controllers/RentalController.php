@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Rental;
 use App\Models\Item;
 use App\Models\Location;
+use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 // Include other necessary models
 
@@ -18,7 +20,9 @@ class RentalController extends Controller
      */
     public function index()
     {
-        $rentals = Rental::with(['item', 'location'])->get(); // Include other relationships if needed
+        $rentals = Rental::with(['item', 'location', 'user'])
+                ->orderBy('created_at', 'desc')
+                ->get(); 
         return view('rentals.index', compact('rentals'));
     }
 
@@ -31,9 +35,9 @@ class RentalController extends Controller
     {
         $items = Item::all();
         $locations = Location::all();
-        // Fetch other necessary data
+        $users = User::all(); // Fetch all users
 
-        return view('rentals.create', compact('items', 'locations'));
+        return view('rentals.create', compact('items', 'locations', 'users'));
     }
 
     /**
@@ -45,13 +49,21 @@ class RentalController extends Controller
     public function store(Request $request)
 {
     $request->validate([
-        'student_email' => 'required|email', // Ensure the email is provided and valid
+        'student_email' => 'required|email',
         'item_id' => 'required',
         'location_id' => 'required',
-        // Add other validation rules
+        'user_id' => 'required',
+        // other validation rules...
     ]);
 
-    Rental::create($request->all()); // This assumes your Rental model has the appropriate fillable fields
+    $user = User::findOrFail($request->user_id);
+    $rentalData = $request->only(['item_id', 'location_id', 'student_email']);
+    $rentalData['user_id'] = $user->id;
+    $rentalData['rented_at'] = now();
+    $rentalData['student_name'] = $user->name; // Use the user's name
+
+    Rental::create($rentalData);
+
     return redirect()->route('rentals.index')->with('success', 'Rental created successfully.');
 }
 
