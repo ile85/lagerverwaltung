@@ -12,6 +12,6 @@
         <li><a href="{{ route('items.index') }}">Artikel</a></li>
         <li><a href="{{ route('categories.index') }}">Kategorien</a></li>
         <li><a href="{{ route('rentals.index') }}">Vermietungen</a></li>
-        <li><a href="{{ route('users.index') }}">Users</a></li>
+        <li><a href="{{ route('users.index') }}">Benutzer</a></li>
     </ul>
 </div>
