@@ -20,10 +20,12 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="location_id">Standort:</label>
+                        <label for="location_id">Standort:</label>
                             <select name="location_id" id="location_id" class="form-control">
                                 @foreach($locations as $location)
-                                <option value="{{ $location->id }}" {{ $rental->location_id == $location->id ? 'selected' : '' }}>{{ $location->name }}</option>
+                                <option value="{{ $location->id }}" {{ $rental->location_id == $location->id ? 'selected' : '' }}>
+                                {{ $location->ort }}  {{-- Updated from name to ort --}}
+                                </option>
                                 @endforeach
                             </select>
                         </div>

@@ -13,7 +13,7 @@ Route::get('/', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/locations', [LocationController::class, 'index'])->name('locations');
+
 Route::get('/items/create', [ItemController::class, 'create'])->name('items.create'); 
 Route::get('/help', [HelpController::class, 'index'])->name('help');
 Route::get('/users', [UserController::class, 'index'])->name('users.index');

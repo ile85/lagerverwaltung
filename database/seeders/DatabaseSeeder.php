@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
             // List all the seeders you want to run
             UsersTableSeeder::class,
             CategoriesTableSeeder::class,
-            ItemsTableSeeder::class,
             LocationsTableSeeder::class,
+            ItemsTableSeeder::class,
             RentalsTableSeeder::class,
             // ... any other seeders
         ]);

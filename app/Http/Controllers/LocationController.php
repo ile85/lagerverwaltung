@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Location; 
+use App\Models\Location; // Ensure you import the Location model
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
-    protected $fillable = ['name', 'address', 'ort'];
+    protected $fillable = ['name', 'address', 'city'];
     public function index()
     {
         $locations = Location::all();
@@ -40,7 +40,7 @@ class LocationController extends Controller
     public function edit($id)
     {
         $location = Location::findOrFail($id);
-        return view('locations.edit', ['location' => $location]);
+        return view('locations.edit', compact('location'));
     }
 
     public function update(Request $request, $id)
@@ -52,7 +52,7 @@ class LocationController extends Controller
 
         $location = Location::findOrFail($id);
         $location->update($validatedData);
-        return redirect()->route('locations.index');
+        return redirect()->route('locations.index')->with('success', 'Standort updated successfully');
     }
 
     public function destroy($id)
