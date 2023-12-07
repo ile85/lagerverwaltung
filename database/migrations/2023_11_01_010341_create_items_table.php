@@ -6,18 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable(); // Add this line for the description
-            $table->unsignedBigInteger('category_id'); // Add this line for the category_id
-            $table->unsignedBigInteger('location_id')->nullable(); // Add this line for the location_id
-            // ... add any other missing columns here
+            $table->text('description')->nullable(); 
+            $table->unsignedBigInteger('category_id'); 
+            $table->unsignedBigInteger('location_id')->nullable(); 
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('location_id')->references('id')->on('locations');
             $table->timestamps();
         });
     }

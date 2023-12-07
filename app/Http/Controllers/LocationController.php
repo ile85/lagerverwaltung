@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Location; // Ensure you import the Location model
+use App\Models\Location; 
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
-    protected $fillable = ['name', 'address', 'city'];
+    protected $fillable = ['name', 'address', 'ort'];
     public function index()
     {
         $locations = Location::all();
