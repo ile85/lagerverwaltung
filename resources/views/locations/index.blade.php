@@ -4,6 +4,9 @@
 <div class="container">
     <h1></h1>
     <a href="{{ route('locations.create') }}" class="btn btn-success mb-3">Neuen Standort hinzufügen</a>
+    <div id="search-container">
+        <!-- Search input will be dynamically inserted here by the DataTables JS -->
+    </div>
     <div class="table-responsive">
         <table class="table" id="locations-table">
             <thead>
